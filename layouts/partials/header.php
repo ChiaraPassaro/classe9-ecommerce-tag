@@ -18,9 +18,9 @@
       </button>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><a class="nav-link" href="<?php echo $basePath ?>tags/">Tags</a></li>
-          <li class="nav-item"><a class="nav-link" href="<?php echo $basePath ?>categories">Categories</a></li>
-          <li class="nav-item"><a class="nav-link" href="<?php echo $basePath ?>products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?php echo $basePath ?>tags/insert.php">Add Tag</a></li>
+          
+          <li class="nav-item"><a class="nav-link" href="<?php echo $basePath ?>products/insert.php">Add Product</a></li>
         </ul>
       </div>
     </nav>

@@ -1,4 +1,5 @@
 const $ = require('jquery');
+const Handlebars = require('handlebars');
 
 $(document).ready(function(){
   //disabilitiamo invio
@@ -46,8 +47,17 @@ $(document).ready(function(){
   });
 
   $(document).on('click','#tag-list li', function(){
+    var source = $("#tags-added-template").html();
+    var template = Handlebars.compile(source);
     var tag = $(this).text();
-    $('#tags-added').append('<li class="btn btn-primary mr-1"><span class="tag">' + tag + '</span> <span class="delete">x</span></li>');
+
+    var context = {
+      tag: tag
+    }
+
+    var html = template(context);
+    $('#tags-added').append(html);
+
     var hidden = $('#tags-hidden').val();
     if(hidden.length == 0) {
       $('#tags-hidden').val(tag);
@@ -81,6 +91,9 @@ function searchTag(string) {
         $('#tags-error').addClass('alert alert-danger');
         $('#tags-error').html(data.error);
       } else {
+        var source = $("#tags-list-template").html();
+        var template = Handlebars.compile(source);
+        
         for (let i = 0; i < data.results.length; i++) {          
           var tag = data.results[i];
           
@@ -93,7 +106,12 @@ function searchTag(string) {
           });
           
           if(!find) {
-            $('#tag-list').append('<li class="list-group-item">' + tag.name + '</li>');
+            var context = {
+              tag: tag.name
+            }
+
+            var html = template(context);
+            $('#tag-list').append(html);
           }
         }
       }
