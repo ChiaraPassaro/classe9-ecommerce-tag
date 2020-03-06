@@ -75,7 +75,7 @@ else {
           } else {
 
             $tagsId[] = [
-              'id' => $stmt->insert_id,
+              'id' =>  $row['id'],
               'name' => $thisTag,
             ];
           }

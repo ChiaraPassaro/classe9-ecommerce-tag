@@ -15863,13 +15863,7 @@ $(document).ready(function () {
     var html = template(context);
     $('#tags-added').append(html);
     var hidden = $('#tags-hidden').val();
-
-    if (hidden.length == 0) {
-      $('#tags-hidden').val(tag);
-    } else {
-      $('#tags-hidden').val(hidden + ',' + tag);
-    }
-
+    $('#tags-hidden').val(hidden + ',' + tag);
     $(this).remove();
   });
   $(document).on('click', '#tags-added li .delete', function () {

@@ -59,12 +59,9 @@ $(document).ready(function(){
     $('#tags-added').append(html);
 
     var hidden = $('#tags-hidden').val();
-    if(hidden.length == 0) {
-      $('#tags-hidden').val(tag);
-    } 
-    else {
-      $('#tags-hidden').val(hidden + ',' + tag);
-    }
+    
+    $('#tags-hidden').val(hidden + ',' + tag);
+    
     
     $(this).remove();
   });
@@ -73,6 +70,7 @@ $(document).ready(function(){
     $(this).parent().remove();
     var tag = $(this).prev().text();
     var hidden = $('#tags-hidden').val();
+    
     var newValue = hidden.replace(',' + tag, '');
     $('#tags-hidden').val(newValue);
   });
